@@ -28,6 +28,7 @@ The remote hosting is done using [Free MySQL Hosting](https://www.freemysqlhosti
 The navigation is done throw the side menu. Note that to review a match, loggin in is required.
 Refer to the following tree for naviagation. The tree is designed to statisfy the project requirments.
 
+```
 ┌── Main Screen
 ├── Sign Up
 ├── Log in
@@ -50,7 +51,7 @@ Refer to the following tree for naviagation. The tree is designed to statisfy th
 │    ├── Query a player
 │    └── Identify the home team for a given stadium
 └── log out
-
+```
 In the main screen there is a description for the program.
 In the Sign Up screen, new users can register.
 In the log in Screen, users can log in.

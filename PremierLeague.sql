@@ -1,24 +1,25 @@
 CREATE SCHEMA IF NOT EXISTS `premierleague`;
 
 CREATE TABLE IF NOT EXISTS Player (
-	PlayerName VARCHAR(30) NOT NULL PRIMARY KEY,
+	PlayerName VARCHAR(40) NOT NULL,
     BirthDate DATE NOT NULL,
     Weight INT,
-    Height INT NOT NULL,
+    Height INT,
     `Position` VARCHAR(20) NOT NULL,
-    Nationality VARCHAR(20) NOT NULL
+    Nationality VARCHAR(20) NOT NULL,
+    PRIMARY KEY(PlayerName, BirthDate)
 );
 
 CREATE TABLE IF NOT EXISTS Stadium (
 	StadiumName VARCHAR(50) NOT NULL PRIMARY KEY,
-    RecordAttendence INT NOT NULL,
-    DateBuiling YEAR NOT NULL,
+    RecordAttendence INT,
+    DateBuiling INT NOT NULL,
     Capacity INT NOT NULL,
-    PitchWidth INT NOT NULL,
-    PitchLength INT NOT NULL,
-    AddressCity VARCHAR(20) NOT NULL,
-    AddressPC VARCHAR(10) NOT NULL,
-    AddressArea VARCHAR(20) NOT NULL
+    PitchWidth FLOAT,
+    PitchLength FLOAT,
+    AddressCity VARCHAR(20),
+    AddressPC VARCHAR(10),
+    AddressArea VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS Club (
@@ -30,15 +31,18 @@ CREATE TABLE IF NOT EXISTS Club (
 );
 
 CREATE TABLE IF NOT EXISTS PlaysFor (
-	PlayerName VARCHAR(30) NOT NULL,
+	PlayerName VARCHAR(40) NOT NULL,
+    BirthDate DATE NOT NULL,
     ClubName VARCHAR(30) NOT NULL,
     Season CHAR(7) NOT NULL,
-    PRIMARY KEY(PlayerName, ClubName, Season),
-    CONSTRAINT FK_PlaysForPlayer FOREIGN KEY PlaysFor(PlayerName) REFERENCES Player(PlayerName)
-    ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT FK_PlaysForClub FOREIGN KEY PlaysFor(ClubName) REFERENCES Club(ClubName)
-    ON UPDATE CASCADE ON DELETE RESTRICT
+    PRIMARY KEY(PlayerName, BirthDate, ClubName, Season),
+    CONSTRAINT FK_PlaysForPlayer FOREIGN KEY PlaysFor(PlayerName, BirthDate) REFERENCES Player(PlayerName, BirthDate)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FK_PlaysForClub FOREIGN KEY PlaysFor(ClubName) REFERENCES Club(ClubName)
+	ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+
 
 CREATE TABLE IF NOT EXISTS `Match` (
     HomeClub VARCHAR(30) NOT NULL,

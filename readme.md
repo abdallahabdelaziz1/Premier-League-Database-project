@@ -1,6 +1,6 @@
-# Premier Leaugue Database project
+# Premier League Database project
 
-## FrameWork
+## Framework
 
 The project GUI is built using Qt 6.0+ framework. Qt is a widget toolkit for creating graphical user interfaces as well as
 cross-platform applications that run on various software and hardware platforms such as Linux, Windows, macOS, Android or embedded systems.

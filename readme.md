@@ -65,14 +65,6 @@ In the Best of Season Screen, users can view a table of the best teams for each 
 In Query Screen, users can query a team by its name, query a player by his first/last name, query a team by its stadium name.
 In Log out screen, logged in users can logout.
 
-## Bonus requirements
-
-1. Getting teams by city
-2. GUI applications
-3. Finding player by applying nationality and position filters
-4. Top 10 by season and for all 4 season for all Criteria
-5. The age of the player is displayed when querying a player by name
-
 ## Final Notes
 
 - Note that if the program is left for a long time without any actions the connection to the database is lost.
